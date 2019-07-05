@@ -1,2 +1,2 @@
 # webDes_begin
-Some Bootstrap and jQuery concoction
+Some Bootstrap, vanillaJS and jQuery concoction
