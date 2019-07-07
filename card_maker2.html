@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+<title>
+ Testing Card Generation   
+</title>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+</head>
+<body>
+<!-- The buttons... -->
+<button id="cardmaker" onclick="createDiv()" data-toggle="modal" data-target="#myModal1">Add Profile </button>    
+<!-- jQuery for creating new cards -->
+<script>
+var i = 1;
+    function createDiv(){
+    i++;
+    var newDiv = document.createElement("div");
+   // var myCol  = document.createElement("div");
+    newDiv.id = "newDiv"+i;
+    document.getElementById("myCol").appendChild(newDiv); // <--- Append it here
+    var e = document.getElementById("newDiv"+i);
+   // The code to add an entire card 
+    e.innerHTML = '<div class="card text-white bg-success mb-3" style="width: 300px;height: 400px;">'
+    +'<img src="pro.jpg" class="card-img-top" alt="whoops, no image">'+'<div class="card-body text-center"> <h5 class="card-title">Ryan Liddel</h5>'
+    +'<p class="card-text">Ryan is a freelance web designer and developer based in Luxembourg. He is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>'
+    +'<a href="#" class="btn btn-primary" onclick="removeDiv('+i+'")>'+'Remove Profile</a>'
+    +'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"> Edit Profile</button>'
+    +'</div> </div>'
+    ;
+    e.className = "newDivs";
+    var x = 50*i;
+    e.style.left = x+"px";
+    e.style.top = 200+"px";
+    
+}
+
+function removeDiv(h){
+    var toRemove="newDiv"+h;
+document.getElementById("myCol").removeChild(toRemove);
+
+}
+</script>    
+<!-- Enclose entire thing in card-columns -->
+<div class="card-columns" id='myCol'>
+<!-- Card 1 as a sample-->
+<div class="card text-black bg-info mb-3" style="width: 300px;height: 420px;" id="myDiv1">
+        <img src="pro.png" class="card-img-top" alt="whoops, no image">
+        <div class="card-body text-center">
+            <h5 class="card-title">Derek Ryan</h5>
+            <p class="card-text">Derek is a dentist based in Vermont. He is specialized in HTML5, CSS3, Bootstrap, etc and codes in his free time.</p>
+            <a href="#" class="btn btn-primary bg-warning" onclick="removeDiv(1)">Remove Profile</a>
+            <a href="#" class="btn btn-primary bg-secondary">Edit Profile</a>
+        </div>
+    </div>
+</div>
+
+ <!-- Modal 1 -->
+  <div class="modal text-danger" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Create Profile</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body: Include form here!!!!  -->m
+        <div class="modal-body">
+          Modal body..
+          <form class="list form-store-data" id="my-form">
+                <ul>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Name</div>
+                        <div class="item-input-wrap">
+                          <input type="text" name="name" placeholder="Your name" id="uname">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">E-mail</div>
+                        <div class="item-input-wrap">
+                          <input type="email" name="email" placeholder="E-mail" id="umail">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Ignore from storage</div>
+                        <div class="item-input-wrap">
+                          <input class="no-store-data" type="text" name="text" placeholder="This value won't be stored">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Gender</div>
+                        <div class="item-input-wrap">
+                          <select name="gender">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">Switch</div>
+                        <div class="item-after">
+                          <label class="toggle">
+                            <input type="checkbox" name="switch" value="yes"><i class="toggle-icon"></i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </form>
+
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="modClose1">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<!-- Getting data from Modal using jQuery-->
+<script>
+        $(document).ready(function(){
+            $('#modClose1').click(function(){
+                var getDataback1 = $('#myModal1 #my-form #uname').val().trim() ;
+                var getPro1 = $('#myModal1 #my-form #umail').val().trim();
+                $('#result1').html(getDataback1);
+                $('#umail1').html(getPro1);
+            });
+            $('#modClose2').click(function(){
+                var getDataback2 = $('#myModal2 #my-form #uname2').val().trim() ;
+                $('#result2').html(getDataback2);
+                var getPro2 = $('#myModal2 #my-form #umail2').val().trim();
+                $('#umail2').html(getPro2);
+            });
+        });
+    </script>      
+</body>
+</html>
