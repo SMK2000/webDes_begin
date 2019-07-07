@@ -1,2 +1,2 @@
 # webDes_begin
-Some Bootstrap, vanillaJS and jQuery concoction
+Relevant files: auth3.html, myfinal.html
