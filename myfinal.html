@@ -75,10 +75,13 @@ Admin Page - Events
         <a class="active" href="#home">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
-        <a href="#about">Log Out</a>
+        <a href="auth3.html">Log Out</a>
       </div>
     <br>
-    <button id='eventAdder' onclick="createDiv()">Create Profile</button>
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" onclick="createDiv()">
+            Create Editable Profile
+          </button>
 <!-- jQuery and DOM for card deletion-->
 
 <script>
@@ -91,7 +94,7 @@ $("#myCol #myDiv"+h1).remove();
       
 <!-- jQuery and DOMfor creating (non-customisable)new cards -->
 <script>
-        var i = 1;
+        var i = 2; // initial number of hardcoded cards
             function createDiv(){
             i++;
             var newDiv = document.createElement("div");
@@ -99,19 +102,20 @@ $("#myCol #myDiv"+h1).remove();
             newDiv.id = "newDiv"+i;
             document.getElementById("myCol").appendChild(newDiv); // <--- Append it here
             var e = document.getElementById("newDiv"+i);
-           // The code to add an entire card 
+           // The code to add an entire card and a corresponding modal
             e.innerHTML = '<div class="card text-white bg-success mb-3" style="width: 300px;height: 400px;">'
-            +'<img src="pro.jpg" class="card-img-top" alt="whoops, no image">'+'<div class="card-body text-center"> <h5 class="card-title">Ryan Liddel</h5>'
-            +'<p class="card-text">Ryan is a freelance web designer and developer based in Luxembourg. He is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>'
-            +'<a href="#" class="btn btn-primary bg-warning" onclick="removeDiv'+'('+i+')>Remove Profile</a> &nbsp;'
+            +'<img src="pro.jpg" class="card-img-top" alt="whoops, no image">'+'<div class="card-body text-center"> <h5 class="card-title">Sample</h5>'
+            +'<p class="card-text">Add Your Text</p>'
+            +'<a href="#" class="btn btn-primary bg-warning" onclick="removeDiv'+'('+i+')">Remove Profile</a> &nbsp;'
             +'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"> Edit Profile</button>'
             +'</div> </div>'
             ;
+            //e.innerHTML='';
             e.className = "newDivs";
             var x = 50*i;
             e.style.left = x+"px";
             e.style.top = 200+"px";
-            
+            // why isn't line 106 working??
         }
 </script>  
 <!-- Enclose entire thing in card-columns -->
@@ -120,10 +124,20 @@ $("#myCol #myDiv"+h1).remove();
         <div class="card text-black bg-info mb-3" style="width: 300px;height: 400px;" id="myDiv1">
                 <img src="pro.jpg" class="card-img-top" alt="whoops, no image">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Derek Ryan</h5>
-                    <p class="card-text">Derek is a dentist based in Vermont. He is specialized in HTML5, CSS3, Bootstrap, etc and codes in his free time.</p>
-                    <a href="#" class="btn btn-primary bg-warning" onclick="removeDiv(1)">Remove Profile</a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"> Edit Profile</button>
+                    <h5 class="card-title">Coalescence</h5>
+                    <p class="card-text">Premier event involving renowned enterpreneurs.</p>
+                    <a href="#" class="btn btn-primary bg-warning" onclick="removeDiv(1)">Remove Event</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"> Edit Event</button>
+                </div>
+            </div>
+             <!-- Card 2 as a sample-->
+        <div class="card text-black bg-success mb-3" style="width: 300px;height: 400px;" id="myDiv2">
+                <img src="pro.jpg" class="card-img-top" alt="whoops, no image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Footloose</h5>
+                    <p class="card-text">Dance event for individuals</p>
+                    <a href="#" class="btn btn-primary bg-warning" onclick="removeDiv(2)">Remove Event</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"> Edit Event</button>
                 </div>
             </div>
         </div>
@@ -201,6 +215,15 @@ $("#myCol #myDiv"+h1).remove();
           </div>
         </div>
 </div>
-
+<!-- Getting data from Modal using jQuery-->
+<script>
+        $(document).ready(function(){
+            $('#modClose1').click(function(){
+                var getDataback1 = $('#myModal1 #my-form #uname').val().trim() ;
+                var getPro1 = $('#myModal1 #my-form #umail').val().trim();
+            });
+         
+        });
+    </script> 
 </body>
 </html>
