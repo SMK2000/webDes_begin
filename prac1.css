@@ -1,0 +1,41 @@
+/* sample style sheet */
+*{margin: 0}
+
+body
+{
+    color:#080522;
+    background-color: #00ff40;
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 18pt;
+}
+
+body{
+    background-image: url("117075.jpg"),url("117069.jpg");
+/*background: -webkit-gradient(radial,50% 50%,0,50% 50%,350,from(green),to(blue));*/
+}
+p{ font-size: 12pt;}
+
+table{
+    background-color: #efefef;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #999900;
+}
+
+th{
+    background-color: #cccc00;
+    font-weight: bold;
+    padding: 15px;
+}
+
+td{
+    padding: 15px;
+}
+
+td.code{
+    font-family: serif;
+    font-weight: bold;
+}
