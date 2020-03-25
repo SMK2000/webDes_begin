@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<style>
+
+/* */
+ input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* */
+</style>
+<head>
+    <title>
+        Form Input
+    </title>
+</head>
+<body>
+    <br>
+    <div>
+        <form action="http://localhost/phpmyadmin/examples/maria_in.php" method="post">
+          <label>PMID</label>
+      <br>     
+          <input type="number" name="PMID" placeholder="Enter PMID.." value="<?php echo $pm">
+      <br>
+          <label>Title</label>
+          <input type="text"  name="Title" placeholder="Enter Title.." value="<?php echo $tt>">
+      
+          <label>First Author</label>
+          <input type="text" name = "Author" placeholder="Enter First Author.." value="<?php echo $fa>">
+        
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+</body>
+</html>
